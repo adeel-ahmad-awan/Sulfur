@@ -1,24 +1,46 @@
-# README
+# functional Requirements
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+####this project is made using following functional requirements
 
-Things you may want to cover:
+* user can be able to create account
+  * user can upload picture for profile if not default picture is selected
+  * user can make his personal profile
+  * small description
+  * mission
+* contact info email, number, links
+  * email
+  * phone number
+  * links
+    * facebook
+    * twitter
+    * github
+    * youtube
+    * instagram
+    * WordPress
+* skills
+* interests
+* experience
+  * company name
+  * location
+  * role
+  * small description
+  * time period
+* education
+  * institute name
+  * location
+  * degree
+  * small description
+  * time period
+* projects
+  * name
+  * description
+  * technologies
+  * language
+  * link
+  * source code
+  * algorithms
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+functionality
+  * search people
+  * add friends
+  * download CV in pdf
