@@ -1,6 +1,6 @@
 # functional Requirements
 
-####this project is made using following functional requirements
+#### this project is made using following functional requirements
 
 * user can be able to create account
   * user can upload picture for profile if not default picture is selected
