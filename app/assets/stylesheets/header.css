@@ -1,0 +1,65 @@
+/*https://codepen.io/ianfarb/pen/fcmGt*/
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+
+* {
+  margin:0;
+  padding:0;
+  list-style: none;
+  text-decoration: none;
+}
+
+  body
+  {
+    background:#595959;
+  }
+
+
+  #wrapper {
+    width:300px;
+    /*margin:40px auto 0 auto;*/
+    border-radius:2px;
+    overflow:hidden;
+    background:#595959;
+    border:1px solid #00c6ff;
+    border: inset 1px #555;
+  }
+
+  .number {
+    padding: 0 50px 0 0;
+    float:left;
+  }
+
+  a.selected
+  {
+    background: #black;
+    color:#333;
+  }
+
+  #wrapper li
+  {
+    font-family:'Roboto Condensed', Arial, Helvetica, sans-serif;
+    font-size:20px;
+    color:#00c6ff;
+  }
+
+  #wrapper li a
+  {
+    color: #b8b9ba;
+    padding:20px;
+    width:100%;
+    display: block;
+    background-image: linear-gradient(to left,
+      transparent,
+      transparent 50%,
+      #F15959 50%,
+      #F15959);
+      background-position: 100% 0;
+      background-size: 200% 100%;
+      transition: all .25s ease-in;
+  }
+
+  #wrapper li a:hover
+  {
+    background-position: 0 0;
+    color:#333;
+  }

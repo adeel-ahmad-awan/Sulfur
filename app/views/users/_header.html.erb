@@ -1,0 +1,36 @@
+
+<div class="card" style="width: 30rem;">
+  <!-- <img
+    class="card-img-top"
+    src="https://i.pinimg.com/736x/0d/ec/11/0dec118fcc6a95af6769f1fc7d572271--cartoon-character-pictures-pictures-of-cartoons.jpg"
+    alt="Card image cap"
+    height="200"
+    width="300"
+    , :title => "Click here to return to Home"
+  > -->
+
+  <%= image_tag(@user.profile_picture.url, size: "299x250", alt: "Edit Entry", :class => "card-img-top" ) %>
+
+  <!-- <div class="card-block">
+    <h4 class="card-title"> <%= @user.full_name %> </h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush header-list-group-styling ">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-block">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div> -->
+
+  <ul id="wrapper">
+    <li><%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-in" %></li>
+     <li><a href="#">Projects <span class="number">3</span> </a></li>
+     <li><a href="#">Music <span class="number">4</span> </a></li>
+     <li><a href="#">Photos <span class="number">2</span> </a></li>
+ </ul>
+
+
+</div> <!-- end div class card -->
