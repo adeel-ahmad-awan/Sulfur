@@ -1,34 +1,95 @@
-
+<!--
 <div class="card" style="width: 30rem;">
-  <%= image_tag(@user.profile_picture.url, size: "299x250", alt: "Edit Entry", :class => "card-img-top" ) %>
+<%= image_tag(@user.profile_picture.url, size: "299x250", alt: "Edit Entry", :class => "card-img-top" ) %>
 
-  <ul id="wrapper">
-    <li><%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-in" %></li>
-    <li><a href="#">Projects <span class="number">3</span> </a></li>
-    <li><a href="#">Music <span class="number">4</span> </a></li>
-    <li><a href="#">Photos <span class="number">2</span> </a></li>
-  </ul>
+<ul id="wrapper">
+<li><%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-in" %></li>
+<li><a href="#">Projects <span class="number">3</span> </a></li>
+<li><a href="#">Music <span class="number">4</span> </a></li>
+<li><a href="#">Photos <span class="number">2</span> </a></li>
+</ul>
 
-  <div class="btn-group link-button ">
-    <button type="button" class="btn btn-sm btn-link">
-      <%= link_to "http://www.facebook.com/" do %>
-        <%=   image_tag("socialnetworkslogos/cir/png/facebook.png", size: "30x30", alt: "Edit Entry") %>
-      <% end %>
-    </button>
-    <button type="button" class="btn btn-sm btn-link">
-      <%= link_to "http://www.twitter.com/" do %>
-        <%=   image_tag("socialnetworkslogos/cir/png/twitter.png", size: "30x30", alt: "Edit Entry") %>
-      <% end %>
-    </button>
-    <button type="button" class="btn btn-sm btn-link">
-      <%= link_to "http://www.linkedin.com/" do %>
-        <%=   image_tag("socialnetworkslogos/cir/png/linkedin.png", size: "30x30", alt: "Edit Entry") %>
-      <% end %>
-    </button>
+<div class="btn-group link-button ">
+<button type="button" class="btn btn-sm btn-link">
+<%= link_to "http://www.facebook.com/" do %>
+<%=   image_tag("socialnetworkslogos/cir/png/facebook.png", size: "30x30", alt: "Edit Entry") %>
+<% end %>
+</button>
+<button type="button" class="btn btn-sm btn-link">
+<%= link_to "http://www.twitter.com/" do %>
+<%=   image_tag("socialnetworkslogos/cir/png/twitter.png", size: "30x30", alt: "Edit Entry") %>
+<% end %>
+</button>
+<button type="button" class="btn btn-sm btn-link">
+<%= link_to "http://www.linkedin.com/" do %>
+<%=   image_tag("socialnetworkslogos/cir/png/linkedin.png", size: "30x30", alt: "Edit Entry") %>
+<% end %>
+</button>
+</div>
+
+<div class="copywrite">
+<p>by @-|)</p>
+</div>
+
+</div> -->
+
+<header id="header">
+
+
+
+
+
+  <!--Main header-->
+  <div class="main-header">
+
+    <!--Profile image-->
+    <figure class="img-profile">
+      <!-- <img src="img/profile.jpg" alt=""/> -->
+      <%= image_tag(@user.profile_picture.url, alt: "Edit Entry", :class => "card-img-top" ) %>
+
+      <figcaption class="name-profile">
+        <span><%= @user.full_name %><sup>&reg;</sup></span>
+      </figcaption>
+
+    </figure>
+    <!--End profile image-->
+
+
+
+    <!--Main navigation-->
+    <nav id="main-nav" class="main-nav clearfix tabbed">
+
+      <ul>
+        <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+        <li ><a href="#about"><i class="icon-user"></i>About</a></li>
+        <li><a  href="#portfolio"><i class="icon-camera"></i>Portfolio</a></li>
+        <li><a  href="#blog"><i class="icon-chat"></i>Blog</a></li>
+        <li><a  href="#contact"><i class="icon-phone"></i>Contact</a></li>
+      </ul>
+
+    </nav>
+    <!--End main navigation-->
+
+
+
+
+  </div>
+  <!--End main header-->
+
+  <div class="bottom-header bgWhite ofsTSmall ofsBSmall tCenter">
+    <ul class="social">
+      <li><a href="#"><i class="icon-facebook"></i></a></li>
+      <li><a href="#"><i class="icon-twitter"></i></a></li>
+      <li><a href="#"><i class="icon-linkedin"></i></a></li>
+
+
+    </ul>
+
+    <p>&copy; 2015 Mutationthemes.</p>
+
   </div>
 
-  <div class="copywrite">
-    <p>by @-|)</p>
-  </div>
 
-</div> <!-- end div class card -->
+
+
+</header>
