@@ -1,0 +1,15 @@
+<div class="row">
+
+  <!--
+  the header displays image of the user and links to different section
+  it occoupies 3 column of bootstrap grid system
+  -->
+
+  <!-- header -->
+  <div class="col-sm-3">
+    <%= render 'header', :@user => @user %>
+  </div>
+  <div class="col-sm-9">
+    <%= render 'about', :@user => @user %>    
+  </div>
+</div>

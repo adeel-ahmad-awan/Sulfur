@@ -1,0 +1,158 @@
+<!--Main title-->
+<div class="main-title">
+  <h1>professional skills
+    <% if @user.id == current_user.id %>
+    <%= link_to "edit skills", user_skills_path(@user), class: "btn btn-link btn-sm" %>
+    <% end %>
+  </h1>
+  <!-- <div class="divider">
+  <div class="zigzag large clearfix "  data-svg-drawing="yes" >
+  <svg xml:space="preserve" viewBox="0 0 69.172 14.975" width="37" height="28" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <path d="M1.357,12.26 10.807,2.81 20.328,12.332
+  29.781,2.879 39.223,12.321 48.754,2.79 58.286,12.321 67.815,2.793 "  style="stroke-dasharray: 93.9851, 93.9851; stroke-dashoffset: 0;"/>
+  </svg>
+  </div>
+  </div> -->
+</div>
+<!--End main title-->
+
+<!--Content-->
+<div class="content">
+
+  <!--Block content-->
+  <!-- coding skills rows -->
+  <div class="block-content  margBMedium">
+    <!--Skill design-->
+    <div class=" skill prs">
+      <!--Row-->
+      <div class="row ">
+
+        <div class="vc">
+
+          <div class="col-md-11">
+
+            <ul class="skills-list clearfix">
+              <li>
+                <% @user.skills.each do |skill| %>
+                <% if skill.catagory == 'coding' %>
+                <h4><%= skill.name %></h4>
+                <div class="progress">
+                  <div class="percentage">
+                    <%= skill.level %>%
+                  </div>
+                </div>
+                <% end %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <!-- left title -->
+          <div class="col-md-1">
+            <div class="title prs">
+              <span>coding</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--End row-->
+
+    </div>
+    <!--End skill design-->
+
+  </div>
+  <!--End block content-->
+
+  <!--Block content-->
+  <div class="block-content margBMedium">
+
+    <!--Skill design-->
+    <div class=" skill dev">
+
+      <!--Row-->
+      <div class="row">
+        <div class="vc">
+
+          <div class="col-md-11">
+
+            <ul class="skills-list clearfix">
+              <li>
+                <% @user.skills.each do |skill| %>
+                <% if skill.catagory == 'design' %>
+                <h4><%= skill.name %></h4>
+                <div class="progress">
+                  <div class="percentage">
+                    <%= skill.level %>%
+                  </div>
+                </div>
+                <% end %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-1">
+            <div class="title prs">
+              <span>design's</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--End row-->
+
+    </div>
+    <!--End skill design-->
+
+  </div>
+  <!--End block content-->
+
+
+  <!--Block content-->
+  <div class="block-content">
+
+    <!--Skill design-->
+    <div class=" skill des">
+
+      <!--Row-->
+      <div class="row ">
+
+        <div class="vc">
+
+          <div class="col-md-11">
+
+            <ul class="skills-list clearfix">
+              <li>
+                <% @user.skills.each do |skill| %>
+                <% if skill.catagory == 'soft_skills' %>
+                <h4><%= skill.name %></h4>
+                <div class="progress">
+                  <div class="percentage">
+                    <%= skill.level %>%
+                  </div>
+                </div>
+                <% end %>
+                <% end %>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="col-md-1">
+            <div class="title prs">
+              <span>soft skill's</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--End row-->
+
+    </div>
+    <!--End skill design-->
+
+  </div>
+  <!--End block content-->
+
+</div>
+<!--End content-->

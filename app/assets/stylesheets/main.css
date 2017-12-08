@@ -365,6 +365,14 @@
 
 /*------------------------ About section ------------------------*/
 
+.main-title h1 {
+  font-weight: 700;
+}
+
+.about p {
+  font-family: sans-serif;
+  font-weight: lighter;
+}
 
 .about{
 	overflow:hidden;

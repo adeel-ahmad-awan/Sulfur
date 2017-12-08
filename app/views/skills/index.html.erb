@@ -1,0 +1,52 @@
+<table class="table">
+  <col width="20%">
+  <col width="20%">
+  <col width="50%">
+  <col width="10%">
+    <thead class="thead-inverse">
+    <tr>
+      <th>Catagory</th>
+      <th>Name</th>
+      <th>Level</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @skills.each do |skill| %>
+      <tr>
+        <td><%= skill.catagory %></td>
+        <td><%= skill.name %></td>
+        <!-- <td><%= skill.level %></td> -->
+        <td>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow=<% skill.level %> aria-valuemin="0" aria-valuemax="100" style="width:<%= skill.level %>%">
+              <%= skill.level %>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="btn-group">
+            <button type="button" class="btn btn-link btn-xs">
+              <%= link_to 'Edit',  edit_user_skill_path(@user, skill) %>
+            </button>
+            <button type="button" class="btn btn-danger btn-xs">
+              <%= link_to 'Destroy', [@user, skill], method: :delete, data: { confirm: 'Are you sure?' } %>
+            </button>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<div class="btn-group btn-index-skills">
+  <button type="button" class="btn btn-link">
+    <%= link_to 'back to resume',  user_path(@user) %>
+  </button>
+  <button type="button" class="btn btn-default">
+    <%= link_to 'add new skill',  new_user_skill_path(@user) %>
+  </button>
+</div>

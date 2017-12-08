@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'users/profile'
+
+  resources 'users' do
+    resources 'skills'
+  end
 
   devise_for :users, :controllers => { :registrations => "user/registrations" }
 
