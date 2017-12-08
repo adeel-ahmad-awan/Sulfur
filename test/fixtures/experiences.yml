@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_name: MyString
+  company_location: MyText
+  position: MyString
+  description: MyText
+  from: 2017-12-08
+  to: 2017-12-08
+  user: one
+
+two:
+  company_name: MyString
+  company_location: MyText
+  position: MyString
+  description: MyText
+  from: 2017-12-08
+  to: 2017-12-08
+  user: two

@@ -1,0 +1,68 @@
+<!-- https://bootsnipp.com/snippets/featured/simple-contact-form -->
+
+<div class="container">
+  <div class="col-md-5">
+
+    <%= form_for([@user, @experience]) do |f| %>
+
+    <% if @experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+      <ul>
+        <% @experience.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+
+    <div class="form-area">
+      <form role="form">
+        <br style="clear:both">
+        <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+
+        <div class="form-group">
+          <%= f.text_field :company_name, class: 'form-control', placeholder: "company  name" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :position, class: 'form-control', placeholder: "position" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :company_location, class: 'form-control', placeholder: "location" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_area :description, class: 'form-control', placeholder: "description of your work", :rows => 10 %>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :from %>
+              <%= f.date_field :from %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :to %>
+              <%= f.date_field :to %>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-link btn-sm">
+            cancel
+          </button>
+            <%= f.submit "add job to experience", class: "btn btn-primary btn-sm" %>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <% end %>
+</div>

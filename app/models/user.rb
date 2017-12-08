@@ -8,6 +8,7 @@ class User < ApplicationRecord
    validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\z/
 
    has_many :skills
+   has_many :experiences
 
   def full_name
     return "#{first_name} #{last_name}"

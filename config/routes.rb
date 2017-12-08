@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
 
+
   resources 'users' do
     resources 'skills'
+    resources 'experiences'
   end
 
   devise_for :users, :controllers => { :registrations => "user/registrations" }
