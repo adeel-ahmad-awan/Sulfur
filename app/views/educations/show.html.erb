@@ -1,0 +1,24 @@
+<%- model_class = Education -%>
+<div class="page-header">
+  <!-- <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1> -->
+  <h3>degree details</h3>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:institute) %>:</strong></dt>
+  <dd><%= @education.institute %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:degree) %>:</strong></dt>
+  <dd><%= @education.degree %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:starting_date) %>:</strong></dt>
+  <dd><%= @education.from %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ending_date) %>:</strong></dt>
+  <dd><%= @education.to %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @education.description %></dd>
+</dl>
+
+<% if (current_user.id == @user.id ) %>
+  <%= link_to 'back',  user_educations_path(@user), :class => 'btn btn-link' %>
+  <%= link_to 'Edit',  edit_user_education_path(@user, @education), :class => 'btn btn-link'  %>
+  <%= link_to 'Destroy', [@user, @education], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
+<% end %>

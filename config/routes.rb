@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-  get 'educations/index'
-
-  get 'educations/new'
-
-  get 'educations/edit'
-
   resources 'users' do
     resources 'skills'
     resources 'experiences'
