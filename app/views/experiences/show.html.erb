@@ -1,0 +1,26 @@
+<%- model_class = Experience -%>
+<div class="page-header">
+  <!-- <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1> -->
+  <h1><%= @experience.position %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:company_name) %>:</strong></dt>
+  <dd><%= @experience.company_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:company_location) %>:</strong></dt>
+  <dd><%= @experience.company_location %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:position_as_an_employee) %>:</strong></dt>
+  <dd><%= @experience.position %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:joining_date) %>:</strong></dt>
+  <dd><%= @experience.from %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:leaving_date) %>:</strong></dt>
+  <dd><%= @experience.to %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description_of_your_position) %>:</strong></dt>
+  <dd><%= @experience.description %></dd>
+</dl>
+
+<% if (current_user.id == @user.id ) %>
+  <%= link_to 'back',  user_experiences_path(@user), :class => 'btn btn-link' %>
+  <%= link_to 'Edit',  edit_user_experience_path(@user, @experience), :class => 'btn btn-link'  %>
+  <%= link_to 'Destroy', [@user, @experience], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
+<% end %>

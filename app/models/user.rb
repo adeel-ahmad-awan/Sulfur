@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
    has_many :skills
    has_many :experiences
+   has_many :educations
+
+
 
   def full_name
     return "#{first_name} #{last_name}"

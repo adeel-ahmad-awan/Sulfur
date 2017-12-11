@@ -1,2 +1,97 @@
-<h1>Experiences#index</h1>
-<p>Find me in app/views/experiences/index.html.erb</p>
+<!-- link https://bootsnipp.com/snippets/M2Q19 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet">
+<div class="container">
+  <div class="row">
+    <div class="jumbotron">
+      <h1 class="blue" style="color:#2196F3;"> Experience </h1>
+      <h3 class="blue"><%= @user.full_name %></h3>
+      <%= link_to 'back', user_path(@user) %>
+      <%= link_to 'new', new_user_experience_path(@user) %>
+    </div>
+  </div>
+
+
+  <table class="table">
+    <thead>  </thead>
+    <tbody>
+
+    <% @experiences.each do |exp| %>
+
+    <tr>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-content">
+
+            <div class= <%= randomcardcolor %> >
+              <h1 class="card-heading"><%= exp.position %> <span><%= exp.company_name %></span> </h1>
+            </div>
+
+            <div class="card-body">
+              <p class="card-p">
+                <%= exp.description.truncate_words(30) %>
+              </p>
+            </div>
+
+            <nav class="nav-tabs">
+              <ul class="nav nav-pills pull-left">
+                <li class="card-action">
+                  <%= link_to 'details', user_experience_path(@user, exp) %>
+                </li>
+                <li class="card-action">
+                  <%= link_to 'Destroy', [@user, exp], method: :delete, data: { confirm: 'Are you sure?' } %>
+                </li>
+                <!-- <li class="card-action"><a href="#">Link</a></li>
+                <li class="card-action"><a href="#">Link</a></li> -->
+              </ul>
+            </nav>
+
+          </div>
+          <!-- end class card-content -->
+
+        </div>
+        <!-- end class card -->
+
+      </div>
+      <!-- end class col-md-4 -->
+
+
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+
+  <!--small cards-->
+  <!-- <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-content">
+
+          <div class="card-header-blue">
+            <h1 class="card-heading">Card Header Blue</h1>
+          </div>
+
+          <div class="card-body">
+            <p class="card-p">
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+            </p>
+          </div>
+
+          <nav class="nav-tabs">
+            <ul class="nav nav-pills pull-left">
+              <li class="card-action"><a href="#">Link</a></li>
+              <li class="card-action"><a href="#">Link</a></li>
+              <li class="card-action"><a href="#">Link</a></li>
+              <li class="card-action"><a href="#">Link</a></li>
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+
+
+    </div>
+ -->
