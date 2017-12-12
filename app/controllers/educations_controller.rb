@@ -17,7 +17,7 @@ class EducationsController < ApplicationController
 
     respond_to do |format|
       if @education.save
-        format.html { redirect_to user_experiences_path, notice: 'experience was successfully added.' }
+        format.html { redirect_to user_education_path(@user, @education), notice: 'record successfully added.' }
         # format.json { render :show, status: :created, location: @skill }
       else
         format.html { render :new }
@@ -27,8 +27,8 @@ class EducationsController < ApplicationController
   end
 
   def show
-      @user = User.find(params[:user_id])
-      @education = @user.educations.find(params[:id])
+    @user = User.find(params[:user_id])
+    @education = @user.educations.find(params[:id])
   end
 
 
@@ -44,7 +44,7 @@ class EducationsController < ApplicationController
 
     respond_to do |format|
       if @education.update(education_params)
-        format.html { redirect_to user_experiences_path, notice: 'skill was successfully updated.' }
+        format.html { redirect_to user_education_path(@user, @education), notice: 'record successfully updated.' }
         # format.json { render :show, status: :ok, location: @skill }
       else
         format.html { render :edit }
