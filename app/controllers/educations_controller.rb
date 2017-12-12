@@ -18,10 +18,8 @@ class EducationsController < ApplicationController
     respond_to do |format|
       if @education.save
         format.html { redirect_to user_education_path(@user, @education), notice: 'record successfully added.' }
-        # format.json { render :show, status: :created, location: @skill }
       else
         format.html { render :new }
-        # format.json { render json: @skill.errors, status: :unprocessable_entity }
       end
     end
   end

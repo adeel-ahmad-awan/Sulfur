@@ -1,0 +1,28 @@
+<table class="table table-inverse table-education">
+  <thead>
+    <tr>
+      <th>service name</th>
+      <th>Details</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @services.each do |ser| %>
+
+    <tr>
+      <td><%=ser.name%></td>
+      <td><%=ser.description.truncate_words(15)%></td>
+      <td>
+
+        <%= link_to 'show', user_service_path(@user, ser.id), class: 'btn btn-link' %>
+        <%= link_to 'Delete', [@user, ser], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link'  %>
+
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+<%= link_to 'Add another service record', new_user_service_path(@user), class: 'btn btn-link' %>
+<%= link_to 'back', user_path(@user), class: 'btn btn-link' %>

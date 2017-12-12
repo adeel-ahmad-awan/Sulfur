@@ -1,0 +1,18 @@
+<%- model_class = Service -%>
+<div class="page-header">
+  <!-- <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1> -->
+  <h3>service details</h3>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @service.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @service.description %></dd>
+</dl>
+
+<% if (current_user.id == @user.id ) %>
+  <%= link_to 'back',  user_services_path(@user), :class => 'btn btn-link' %>
+  <%= link_to 'Edit',  edit_user_service_path(@user, @service), :class => 'btn btn-link'  %>
+  <%= link_to 'Destroy', [@user, @service], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
+<% end %>

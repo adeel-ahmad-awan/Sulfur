@@ -1,0 +1,145 @@
+<!--Main title-->
+
+<div class="main-title">
+  <h1>
+    service
+    <% if @user.id == current_user.id %>
+      <%= link_to "edit", user_services_path(@user), class: "btn btn-link btn-sm" %>
+    <% end %>
+  </h1>
+  <!-- <div class="divider">
+    <div class="zigzag large clearfix "  data-svg-drawing="yes" >
+      <svg xml:space="preserve" viewBox="0 0 69.172 14.975" width="37" height="28" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <path d="M1.357,12.26 10.807,2.81 20.328,12.332
+        29.781,2.879 39.223,12.321 48.754,2.79 58.286,12.321 67.815,2.793 "  style="stroke-dasharray: 93.9851, 93.9851; stroke-dashoffset: 0;"/>
+      </svg>
+    </div>
+  </div> -->
+</div>
+<!--End main title-->
+
+<!--Content-->
+<div class="content">
+
+  <!--Block content-->
+  <div class="block-content ">
+
+    <!--Services-->
+    <div class="services">
+
+      <!--Row-->
+      <div class="row ">
+
+        <!--Block-->
+        <div class="block service tCenter">
+
+          <table class="table">
+            <thead></thead>
+            <tbody>
+              <% @ser.each do |ser| %>
+              <tr>
+                <div class="col-md-4">
+                  <!-- <div class="ico">
+                    <i class="icon-lifebuoy"></i>
+                  </div> -->
+
+                  <div class="det">
+                    <h3><%=ser.name%></h3>
+                    <p>
+                      <%=ser.description%>.
+                    </p>
+                  </div>
+                </div>
+
+              </tr>
+              <%end%>
+            </tbody>
+          </table>
+
+
+
+
+        </div>
+        <!--End block-->
+      </div>
+      <!--End row-->
+
+
+
+
+
+  </div>
+  <!--End servcices-->
+
+</div>
+<!--End block content-->
+
+</div>
+<!--End content-->
+
+<!-- <div class="row "> -->
+
+  <!--Block-->
+  <!-- <div class="block service tCenter">
+
+    <div class="col-md-4">
+      <div class="ico">
+        <i class="icon-monitor"></i>
+      </div>
+
+      <div class="det">
+        <h3>Web Design</h3>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="ico">
+        <i class="icon-tools"></i>
+      </div>
+
+      <div class="det">
+        <h3>development</h3>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="ico">
+        <i class="icon-lamp"></i>
+      </div>
+      <div class="det">
+        <h3>Branding</h3>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+      </div>
+
+    </div>
+
+  </div> -->
+  <!--End block-->
+<!-- </div> -->
+<!--End row-->
+
+<!--Row-->
+<!-- <div class="row"> -->
+
+  <!--Divider-->
+  <!-- <div class="divider-m tCenter margTSmall margBSmall clearfix">
+
+    <div class="col-md-12">
+      <div class="zigzag medium clearfix "  data-svg-drawing="yes" >
+        <svg xml:space="preserve" viewBox="0 0 69.172 14.975" width="45" height="5" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <path d="M1.357,12.26 10.807,2.81 20.328,12.332 29.781,2.879 39.223,12.321 48.754,2.79 58.286,12.321 67.815,2.793 "  style="stroke-dasharray: 93.9851, 93.9851; stroke-dashoffset: 0;"/>
+        </svg>
+      </div>
+    </div>
+
+  </div> -->
+  <!--End divider-->
+
+<!-- </div> -->
+<!--End row-->
+
+
+<!--Row-->
