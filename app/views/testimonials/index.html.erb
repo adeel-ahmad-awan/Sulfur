@@ -1,0 +1,28 @@
+<table class="table table-inverse table-education">
+  <thead>
+    <tr>
+      <th>persons name</th>
+      <th>persons company</th>
+      <th>persons designantion</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tes.each do |tes| %>
+
+    <tr>
+      <td><%=tes.persons_name%></td>
+      <td><%= tes.company  %></td>
+      <td><%=tes.persons_designantion%></td>
+      <td>
+        <%= link_to 'show', user_testimonial_path(@user, tes.id), class: 'btn btn-link' %>
+        <%= link_to 'Delete', [@user, tes], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link'  %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+<%= link_to 'Add another testimonial record', new_user_testimonial_path(@user), class: 'btn btn-link pull-right' %>
+<%= link_to 'back', user_path(@user), class: 'btn btn-link pull-right' %>

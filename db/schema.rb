@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212075403) do
+ActiveRecord::Schema.define(version: 20171212113718) do
 
   create_table "educations", force: :cascade do |t|
     t.string   "institute"
@@ -54,6 +54,21 @@ ActiveRecord::Schema.define(version: 20171212075403) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_skills_on_user_id"
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string   "persons_name"
+    t.string   "persons_designantion"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "company"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
+    t.index ["user_id"], name: "index_testimonials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

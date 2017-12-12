@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @exp = @user.experiences.sort_by &:to
     @edu = @user.educations.sort_by &:to
     @ser = @user.services
+    @tes = @user.testimonials
 
   end
 end

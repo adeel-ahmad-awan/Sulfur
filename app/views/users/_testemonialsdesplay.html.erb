@@ -1,0 +1,107 @@
+<!--Main title-->
+
+<div class="main-title">
+  <h1>
+    testimonials
+    <% if @user.id == current_user.id %>
+      <%= link_to "edit", user_testimonials_path(@user), class: "btn btn-link btn-sm" %>
+    <% end %>
+  </h1>
+  <!-- <div class="divider">
+    <div class="zigzag large clearfix "  data-svg-drawing="yes" >
+      <svg xml:space="preserve" viewBox="0 0 69.172 14.975" width="37" height="28" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <path d="M1.357,12.26 10.807,2.81 20.328,12.332
+        29.781,2.879 39.223,12.321 48.754,2.79 58.286,12.321 67.815,2.793 "  style="stroke-dasharray: 93.9851, 93.9851; stroke-dashoffset: 0;"/>
+      </svg>
+    </div>
+  </div> -->
+</div>
+
+<!--End main title-->
+
+<!--Content-->
+<div class="content">
+
+  <!--Block content-->
+  <div class="block-content ">
+
+
+    <!--Testimonilas-->
+    <div class="testimonials">
+
+
+      <!--Row-->
+      <div class="row ">
+
+        <div class="col-md-12">
+
+          <!--Slider-->
+          <div class="testi clearfix ">
+
+
+            <ul id="testimonial-carousel">
+
+              <% @tes.each do |tes| %>
+              <li>
+
+
+
+                <div class="block-quote">
+                  <div class="block-img">
+                    <% if tes.pic.exists? %>
+                      <%= image_tag tes.pic.url %>
+                    <% else%>
+                      <img src="/assets/default.jpg" alt="default image">
+                    <% end %>
+                  </div>
+
+                  <div class="block-icon">
+                    <img src="/assets/icon_quote.png" alt="default image">
+                  </div>
+
+                  <h3 class="block-profile">
+                    <%= tes.persons_name %>
+                    <span> <%= tes.persons_designantion%> / <%= tes.company%> </span>
+                  </h3>
+                  <blockquote>
+                    <%= tes.description%>
+                  </blockquote>
+
+                  </div>
+                </li>
+                <%end%>
+                <!-- <li>
+                  <div class="block-quote">
+                    <div class="block-img"><img alt="" src="img/testimonial/2.jpg"></div>
+                    <div class="block-icon"><i class="icon-quote"></i></div>
+                    <h3 class="block-profile">Carlose Smith<span> CEO / Split Inc</span></h3>
+                    <blockquote>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                      totam rem aperiam, eaque ipsa quae ab illo
+                      inventore veritatis et quasi architecto beatae vitae dicta.</blockquote>
+
+                    </div>
+                  </li> -->
+
+
+                </ul>
+
+              </div>
+              <!--End  slider-->
+
+
+            </div>
+
+
+          </div>
+          <!--End row-->
+
+
+        </div>
+        <!--End testimonials-->
+
+      </div>
+      <!--End block content-->
+
+
+    </div>
+    <!--End content-->
