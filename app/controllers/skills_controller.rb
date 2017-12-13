@@ -1,61 +1,56 @@
 class SkillsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @skills = @user.skills
   end
 
 
   def new
-    @user = User.find(params[:user_id])
-    @skill = @user.skills.build
+    @skill = Skill.new
+    @user = current_user
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @skill = @user.skills.build(skill_params)
+    @skill = Skill.create(skill_params)
+    @user = current_user.id
+    @skill.user_id = @user
 
     respond_to do |format|
       if @skill.save
-        format.html { redirect_to user_skills_path, notice: 'skill was successfully created.' }
-        # format.json { render :show, status: :created, location: @skill }
+        format.html { redirect_to skills_path, notice: 'record was successfully created.' }
       else
         format.html { render :new }
-        # format.json { render json: @skill.errors, status: :unprocessable_entity }
       end
     end
   end
 
-
   def edit
-    @user = User.find(params[:user_id])
-    @skill = @user.skills.find(params[:id])
+    @skill = Skill.find(params[:id])
+    @user = @skill.user_id
   end
 
   def update
 
-    @user = User.find(params[:user_id])
-    @skill = @user.skills.find(params[:id])
+    @skill = Skill.find(params[:id])
+    @user = @skill.user_id
 
     respond_to do |format|
       if @skill.update(skill_params)
-        format.html { redirect_to user_skills_path, notice: 'skill was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @skill }
+        format.html { redirect_to skills_path, notice: 'record was successfully updated.' }
       else
         format.html { render :edit }
-        # format.json { render json: @skill.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    @skill = @user.skills.find(params[:id])
+    @skill = Skill.find(params[:id])
+    @user = @skill.user_id
 
     @skill.destroy
     respond_to do |format|
-      format.html { redirect_to user_skills_path, notice: 'skill was successfully deleted.' }
-      # format.json { head :no_content }
+      format.html { redirect_to skills_path, notice: 'record was successfully deleted.' }
     end
   end
 
@@ -63,7 +58,7 @@ class SkillsController < ApplicationController
   private
 
   def skill_params
-    params.require(:skill).permit(:name, :catagory, :level, :user_id)
+    params.require(:skill).permit(:name, :catagory, :level, :user_id, :user_id)
   end
 
 end

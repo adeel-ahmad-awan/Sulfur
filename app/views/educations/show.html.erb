@@ -17,8 +17,8 @@
   <dd><%= @education.description %></dd>
 </dl>
 
-<% if (current_user.id == @user.id ) %>
-  <%= link_to 'back',  user_educations_path(@user), :class => 'btn btn-link' %>
-  <%= link_to 'Edit',  edit_user_education_path(@user, @education), :class => 'btn btn-link'  %>
-  <%= link_to 'Destroy', [@user, @education], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
+<%= link_to 'back',  educations_path, :class => 'btn btn-link' %>
+<% if (current_user.id == @user) %>
+  <%= link_to 'Edit',  edit_education_path(@education), :class => 'btn btn-link'  %>
+  <%= link_to 'Destroy', [@education], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
 <% end %>

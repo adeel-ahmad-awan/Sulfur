@@ -19,8 +19,8 @@
   <dd><%= @experience.description %></dd>
 </dl>
 
-<% if (current_user.id == @user.id ) %>
-  <%= link_to 'back',  user_experiences_path(@user), :class => 'btn btn-link' %>
-  <%= link_to 'Edit',  edit_user_experience_path(@user, @experience), :class => 'btn btn-link'  %>
-  <%= link_to 'Destroy', [@user, @experience], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
+<%= link_to 'back',  experiences_path, :class => 'btn btn-link' %>
+<% if (current_user.id == @user) %>
+  <%= link_to 'Edit',  edit_experience_path(@experience), :class => 'btn btn-link'  %>
+  <%= link_to 'Destroy', [@experience], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
 <% end %>

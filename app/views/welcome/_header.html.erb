@@ -6,7 +6,11 @@
     <!--Profile image-->
     <figure class="img-profile">
       <!-- <img src="img/profile.jpg" alt=""/> -->
-      <%= image_tag(@user.profile_picture.url, alt: "Edit Entry", :class => "card-img-top" ) %>
+      <% if @user.profile_picture.exists? %>
+        <%= image_tag(@user.profile_picture.url, alt: "Edit Entry", :class => "card-img-top" ) %>
+      <% else%>
+        <img src="/assets/default.jpg" alt="default image", class = "card-img-top">
+      <% end %>
 
       <figcaption class="name-profile">
         <span><%= @user.full_name %><sup>&reg;</sup></span>

@@ -1,65 +1,60 @@
 class TestimonialsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @tes = @user.testimonials
   end
 
-  def show
-    @user = User.find(params[:user_id])
-    @tes = @user.testimonials.find(params[:id])
-  end
-
   def new
-    @user = User.find(params[:user_id])
-    @tes = @user.testimonials.build
+    @tes = Testimonial.new
+    @user = current_user
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @tes = @user.testimonials.build(testimonial_params)
+    @tes = Testimonial.create(testimonial_params)
+    @user = current_user.id
+    @tes.user_id = @user
 
     respond_to do |format|
       if @tes.save
-        format.html { redirect_to user_testimonial_path(@user, @tes), notice: 'skill was successfully created.' }
-        # format.json { render :show, status: :created, location: @tes }
+        format.html { redirect_to testimonial_path(@tes), notice: 'skill was successfully created.' }
       else
         format.html { render :new }
-        # format.json { render json: @tes.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  def show
+    @tes = Testimonial.find(params[:id])
+    @user = @tes.user_id
+  end
 
   def edit
-    @user = User.find(params[:user_id])
-    @tes = @user.testimonials.find(params[:id])
+    @tes = Testimonial.find(params[:id])
+    @user = @tes.user_id
   end
 
   def update
 
-    @user = User.find(params[:user_id])
-    @tes = @user.testimonials.find(params[:id])
+    @tes = Testimonial.find(params[:id])
+    @user = @tes.user_id
 
     respond_to do |format|
       if @tes.update(testimonial_params)
-        format.html { redirect_to user_testimonial_path(@user, @tes), notice: 'skill was successfully created.' }
-        # format.json { render :show, status: :ok, location: @tes }
+        format.html { redirect_to testimonial_path(@tes), notice: 'record was successfully created.' }
       else
         format.html { render :edit }
-        # format.json { render json: @tes.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    @tes = @user.testimonials.find(params[:id])
+    @tes = Testimonial.find(params[:id])
+    @user = @tes.user_id
 
     @tes.destroy
     respond_to do |format|
-      format.html { redirect_to user_testimonials_path(@user), notice: 'skill was successfully created.' }
-      # format.json { head :no_content }
+      format.html { redirect_to testimonials_path, notice: 'record was successfully created.' }
     end
   end
 
@@ -67,7 +62,7 @@ class TestimonialsController < ApplicationController
   private
 
   def testimonial_params
-    params.require(:testimonial).permit(:persons_name, :persons_designantion, :description, :company, :pic)
+    params.require(:testimonial).permit(:persons_name, :persons_designantion, :description, :company, :pic, :user_id)
   end
 
 end

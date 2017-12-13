@@ -2,7 +2,7 @@
 <div class="main-title">
   <h1>professional skills
     <% if @user.id == current_user.id %>
-    <%= link_to "edit skills", user_skills_path(@user), class: "btn btn-link btn-sm" %>
+    <%= link_to "edit skills", skills_path, class: "btn btn-link btn-sm" %>
     <% end %>
   </h1>
   <!-- <div class="divider">

@@ -29,10 +29,10 @@
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-link btn-xs">
-              <%= link_to 'Edit',  edit_user_skill_path(@user, skill) %>
+              <%= link_to 'Edit',  edit_skill_path(skill) %>
             </button>
-            <button type="button" class="btn btn-danger btn-xs">
-              <%= link_to 'Destroy', [@user, skill], method: :delete, data: { confirm: 'Are you sure?' } %>
+            <button type="button" class="btn btn-link btn-xs">
+              <%= link_to 'Destroy', [skill], method: :delete, data: { confirm: 'Are you sure?' } %>
             </button>
           </div>
         </td>
@@ -44,9 +44,9 @@
 
 <div class="btn-group btn-index-skills">
   <button type="button" class="btn btn-link">
-    <%= link_to 'back to resume',  user_path(@user) %>
+    <%#= link_to 'back to resume',  user_path(@user) %>
   </button>
-  <button type="button" class="btn btn-default">
-    <%= link_to 'add new skill',  new_user_skill_path(@user) %>
+  <button type="button" class="btn btn-link">
+    <%= link_to 'add new skill',  new_skill_path(@user) %>
   </button>
 </div>

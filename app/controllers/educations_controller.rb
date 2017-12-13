@@ -1,23 +1,24 @@
 class EducationsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @educations = @user.educations
   end
 
 
   def new
-    @user = User.find(params[:user_id])
-    @education = @user.educations.build
+    @education = Education.new
+    @user = current_user
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @education = @user.educations.build(education_params)
+    @education = Education.create(education_params)
+    @user = current_user.id
+    @education.user_id = @user
 
     respond_to do |format|
       if @education.save
-        format.html { redirect_to user_education_path(@user, @education), notice: 'record successfully added.' }
+        format.html { redirect_to education_path(@education), notice: 'record successfully added.' }
       else
         format.html { render :new }
       end
@@ -25,24 +26,24 @@ class EducationsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @education = @user.educations.find(params[:id])
+    @education = Education.find(params[:id])
+    @user = @education.user_id
   end
 
 
   def edit
-    @user = User.find(params[:user_id])
-    @education = @user.educations.find(params[:id])
+    @education = Education.find(params[:id])
+    @user = @education.user_id
   end
 
   def update
 
-    @user = User.find(params[:user_id])
-    @education = @user.educations.find(params[:id])
+    @education = Education.find(params[:id])
+    @user = @education.user_id
 
     respond_to do |format|
       if @education.update(education_params)
-        format.html { redirect_to user_education_path(@user, @education), notice: 'record successfully updated.' }
+        format.html { redirect_to education_path(@education), notice: 'record successfully updated.' }
         # format.json { render :show, status: :ok, location: @skill }
       else
         format.html { render :edit }
@@ -52,12 +53,12 @@ class EducationsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    @education = @user.educations.find(params[:id])
+    @education = Education.find(params[:id])
+    @user = @education.user_id
 
     @education.destroy
     respond_to do |format|
-      format.html { redirect_to user_educations_path, notice: 'record was successfully deleted.' }
+      format.html { redirect_to educations_path, notice: 'record was successfully deleted.' }
       # format.json { head :no_content }
     end
   end
@@ -66,7 +67,7 @@ class EducationsController < ApplicationController
   private
 
   def education_params
-    params.require(:education).permit(:institute, :degree, :description, :from, :to)
+    params.require(:education).permit(:institute, :degree, :description, :from, :to, :user_id)
   end
 
 end

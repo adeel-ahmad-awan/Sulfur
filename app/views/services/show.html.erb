@@ -11,8 +11,8 @@
   <dd><%= @service.description %></dd>
 </dl>
 
-<% if (current_user.id == @user.id ) %>
-  <%= link_to 'back',  user_services_path(@user), :class => 'btn btn-link' %>
-  <%= link_to 'Edit',  edit_user_service_path(@user, @service), :class => 'btn btn-link'  %>
-  <%= link_to 'Destroy', [@user, @service], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
+<%= link_to 'back',  services_path, :class => 'btn btn-link' %>
+<% if (current_user.id == @user ) %>
+  <%= link_to 'Edit',  edit_service_path(@service), :class => 'btn btn-link'  %>
+  <%= link_to 'Destroy', [@service], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-link'  %>
 <% end %>

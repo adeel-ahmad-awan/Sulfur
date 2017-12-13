@@ -3,7 +3,7 @@
   <h1>
     experience
     <% if @user.id == current_user.id %>
-      <%= link_to "edit", user_experiences_path(@user), class: "btn btn-link btn-sm" %>
+      <%= link_to "edit", experiences_path, class: "btn btn-link btn-sm" %>
     <% end %>
   </h1>
   <!-- <div class="divider">
